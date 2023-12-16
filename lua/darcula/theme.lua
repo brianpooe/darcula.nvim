@@ -13,6 +13,7 @@ theme.set_highlights = function()
   hl(0, "Comment", { fg = c.comment, bg = 'NONE' })
   hl(0, "Identifier", { fg = c.purple, bg = 'NONE' })
   hl(0, "Include", { fg = c.orange, bg = 'NONE' })
+  hl(0, "String", { fg = c.green, bg = 'NONE' })
 
   -- Treesitter
   hl(0, "TSString", { fg = c.green, bg = 'NONE' })
