@@ -249,6 +249,7 @@ return lush(function(injected_functions)
 		sym("@annotation")({ PreProc }), -- C++/Dart attributes annotations that can be attached to the code to denote some kind of meta information
 		sym("@attribute")({ PreProc }), -- Unstable
 		sym("@include")({ PreProc }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
+		sym("@include.typescript")({ fd = orange }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
 		sym("@type")({ fg = white }),
 		sym("@type.builtin")({ Type, gui = it }),
