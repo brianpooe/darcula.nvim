@@ -11,7 +11,7 @@ local colors = {
   decorator_yellow = "#bbb529",
   comment = "#808080",
   html_css_yellow = "#e8bf6a",
-  html_css_green = "#629755",
+  html_css_green = "#a5c261",
   html_css_white = "#bababa",
 }
 
