@@ -48,7 +48,6 @@ local pop = c7
 
 -- Color palette
 local red = hsl(1, 77, 59)
-local salmon = hsl(10, 90, 70)
 local orange = hsl("#cc7832")
 local yellow = hsl("#ffc66d")
 
