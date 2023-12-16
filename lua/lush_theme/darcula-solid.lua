@@ -71,7 +71,7 @@ return lush(function(injected_functions)
 		NormalFloat({ fg = fg, bg = overbg }),
 		NormalNC({ fg = fg, bg = bg.da(10) }), -- normal text in non-current windows
 
-		Comment({ fg = commentt }),
+		Comment({ fg = comment }),
 		Whitespace({ fg = mid }), -- 'listchars'
 		Conceal({ fg = hsl(0, 0, 25) }),
 		NonText({ fg = treebg }), -- characters that don't exist in the text
