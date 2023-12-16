@@ -262,7 +262,7 @@ return lush(function(injected_functions)
 		sym("@text")({ fg = fg }),
 		sym("@text.emphasis")({ fg = fg, gui = it }),
 		sym("@text.underline")({ fg = fg, gui = un }),
-		sym("@text.strike")({ Comment, gui = un }),
+		sym("@text.strike")({ fg = comment, gui = un }),
 		sym("@text.strong")({ fg = fg, gui = bf }),
 		sym("@text.title")({ fg = orange }), -- Text that is part of a title
 		sym("@text.literal")({ String }), -- Literal text
