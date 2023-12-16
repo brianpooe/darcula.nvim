@@ -15,6 +15,7 @@ theme.set_highlights = function()
   hl(0, "Include", { fg = c.orange, bg = 'NONE' })
 
   -- Treesitter
+  hl(0, "TSString", { fg = c.green, bg = 'NONE' })
   hl(0, "TSPreProc", { fg = c.orange, bg = 'NONE' })
   hl(0, "TSComment", { fg = c.comment, bg = 'NONE' })
   hl(0, "TSAnnotation", { fg = c.blue, bg = 'NONE' })
