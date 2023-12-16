@@ -6,13 +6,13 @@ local colors = {
   white = "#a9b7c6",
   purple = "#9876aa",
   blue = "#6897bb",
-  jsdoc_param_orange = "8a653b",
+  jsdoc_param_orange = "#8a653b",
   green = "#6a8759",
   decorator_yellow = "#bbb529",
   comment = "#808080",
-  html_css_yellow = "e8bf6a",
+  html_css_yellow = "#e8bf6a",
   html_css_green = "#629755",
-  html_css_white = "bababa",
+  html_css_white = "#bababa",
 }
 
 return colors
