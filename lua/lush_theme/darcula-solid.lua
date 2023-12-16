@@ -256,8 +256,7 @@ return lush(function(injected_functions)
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
 		sym("@punctuation.bracket")({ fg = fg }), -- brackets and parens.
 		sym("@punctuation.special")({ Delimiter }), -- special punctutation that does not fall in the catagories before.
-
-		--		sym("@comment")({ Comment }),
+		sym("@comment")({ Comment }),
 		sym("@tag")({ Tag }), -- Tags like html tag names.
 		sym("@tag.delimiter")({ Special }), -- Tag delimiter like < > /
 		sym("@text")({ fg = fg }),
