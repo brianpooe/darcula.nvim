@@ -15,6 +15,7 @@ theme.set_highlights = function()
   hl(0, "Include", { fg = c.orange, bg = 'NONE' })
   hl(0, "String", { fg = c.green, bg = 'NONE' })
   hl(0, "Keyword", { fg = c.orange, bg = 'NONE' })
+  hl(0, "Special", { fg = c.white, bg = 'NONE' })
 
   -- Treesitter
   hl(0, "TSString", { fg = c.green, bg = 'NONE' })
