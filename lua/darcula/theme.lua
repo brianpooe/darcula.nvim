@@ -8,6 +8,8 @@ theme.set_highlights = function()
 
   -- highlights
   hl(0, "Normal", { fg = c.fg, bg = c.bg })
+  hl(0, "Type", { fg = c.white, bg = 'NONE' })
+  hl(0, "Character", { fg = c.html_css_yellow, bg = 'NONE' })
 
   -- Treesitter
   hl(0, "TSComment", { fg = c.comment, bg = 'NONE' })
@@ -61,9 +63,6 @@ theme.set_highlights = function()
   hl(0, "htmlComment", { fg = c.comment, bg = 'NONE' })
   hl(0, "htmlLink", { fg = c.html_css_green, bg = 'NONE', underline=true, })
   hl(0, "htmlString", { fg = c.html_css_green, bg = 'NONE' })
-  hl(0, "sassClass", { fg = c.html_css_yellow, bg = 'NONE' })
-  hl(0, "sassProperty", { fg = c.html_css_white, bg = 'NONE' })
-  hl(0, "sassCssAttribute", { fg = c.html_css_green, bg = 'NONE' })
   hl(0, "sassAmpersand", { fg = c.html_css_yellow, bg = 'NONE' })
   hl(0, "cssBraces", { fg = c.html_css_white, bg = 'NONE' })
   hl(0, "cssInclude", { fg = c.orange, bg = 'NONE' })
