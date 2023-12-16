@@ -34,12 +34,12 @@ local c6 = c5.lighten(70)
 local c7 = c6.lighten(80)
 
 -- Set base colors
-local bg = hsl("#2b2b2b") -- base background
+local bg = "#2b2b2b" -- base background
 local overbg = c1 -- other backgrounds
 local subtle = c2 -- out-of-buffer elements
 
-local fg = hsl("#a9b7c6")
-local comment = hsl("808080") -- comments
+local fg = "#a9b7c6"
+local comment = "#808080" -- comments
 local folder = hsl(202, 9, 57)
 local treebg = hsl(220, 3, 19)
 local mid = c2.lighten(10) -- either foreground or background
@@ -49,21 +49,21 @@ local pop = c7
 -- Color palette
 local red = hsl(1, 77, 59)
 local salmon = hsl(10, 90, 70)
-local orange = hsl("#cc7832")
-local yellow = hsl("#ffc66d")
+local orange = "#cc7832"
+local yellow = "#ffc66d"
 
-local green = hsl("6a8759")
+local green = "#6a8759"
 local teal = hsl(150, 40, 50)
 local cyan = hsl(180, 58, 38)
 
-local blue = hsl("#6897bb")
-local purple = hsl("#9876aa")
+local blue = "#6897bb"
+local purple = "#9876aa"
 local magenta = hsl(310, 40, 70)
-local white = hsl("#a9b7c6")
-local decorator_yellow = hsl("#bbb529")
-local html_css_yellow = hsl("#e8bf6a")
-local html_css_green = hsl("#a5c261")
-local html_css_white = hsl("#bababa")
+local white = "#a9b7c6"
+local decorator_yellow = "#bbb529"
+local html_css_yellow = "#e8bf6a"
+local html_css_green = "#a5c261"
+local html_css_white = "#bababa"
 
 return lush(function(injected_functions)
 	local sym = injected_functions.sym
