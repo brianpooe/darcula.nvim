@@ -228,7 +228,7 @@ return lush(function(injected_functions)
 		sym("@property")({ fg = purple }),
 		sym("@parameter")({ fg = fg }),
 		sym("@parameter.reference")({ fg = fg }),
-		sym("@variable")({ fg = fg }), -- Any variable name that does not have another highlight
+		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
 		sym("@variable.builtin")({ Constant, gui = it }), -- Variable names that are defined by the languages like `this` or `self`.
 
 		sym("@function")({ Function }),
@@ -250,7 +250,7 @@ return lush(function(injected_functions)
 		sym("@attribute")({ PreProc }), -- Unstable
 		sym("@include")({ PreProc }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
-		sym("@type")({ Type }),
+		sym("@type")({ fg = white }),
 		sym("@type.builtin")({ Type, gui = it }),
 
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
