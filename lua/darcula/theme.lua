@@ -6,6 +6,9 @@ local theme = {}
 
 theme.set_highlights = function()
 
+  -- highlights
+  hl(0, "Normal", { fg = c.fg, bg = c.bg })
+
   -- Treesitter
   hl(0, "TSComment", { fg = c.comment, bg = 'NONE' })
   hl(0, "TSAnnotation", { fg = c.blue, bg = 'NONE' })
