@@ -284,6 +284,8 @@ return lush(function(injected_functions)
 		sym("@tag.delimiter.html")({ fg = html_css_yellow }),
 		sym("@string.html")({ fg = html_css_green }),
 		sym("@tag.attribute.html")({ fg = html_css_white }),
+		sym("@constant.html")({ fg = html_css_white }),
+		sym(" @text.title.html")({ fg = html_css_white }),
 		sym("@keyword.html")({ fg = purple }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
@@ -296,6 +298,8 @@ return lush(function(injected_functions)
 		sym("@lsp.type.namespace.typescript")({ fg = white }),
 		sym("@lsp.typemod.parameter.declaration.typescript")({ fg = white }),
 
+		sym("@label.json")({ fg = purple }),
+		sym("@boolean.jsonc")({ fg = orange }),
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
 		markdownLinkText({ fg = fg }),
