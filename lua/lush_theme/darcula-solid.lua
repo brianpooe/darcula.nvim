@@ -285,7 +285,7 @@ return lush(function(injected_functions)
 		-- sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
 		sym("@lsp.type.property.typescript")({ fg = purple }),
-		sym("@lsp.mod.declaration.typescript ")({ fg = purple }),
+		sym("@lsp.mod.declaration.typescript")({ fg = purple }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
