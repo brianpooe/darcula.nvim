@@ -226,6 +226,7 @@ return lush(function(injected_functions)
 
 		sym("@field")({ fg = purple }),
 		sym("@property")({ fg = purple }),
+		sym("@property.typescript")({ fg = purple }),
 		sym("@parameter")({ fg = fg }),
 		sym("@parameter.reference")({ fg = fg }),
 		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
@@ -248,6 +249,7 @@ return lush(function(injected_functions)
 		sym("@namespace")({ PreProc }), -- identifiers referring to modules and namespaces.
 		sym("@annotation")({ PreProc }), -- C++/Dart attributes annotations that can be attached to the code to denote some kind of meta information
 		sym("@attribute")({ PreProc }), -- Unstable
+		sym("@attribute.typescript")({ PreProc }), -- Unstable
 		sym("@include")({ PreProc }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 		sym("@include.typescript")({ fg = orange }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
@@ -271,6 +273,7 @@ return lush(function(injected_functions)
 
 		sym("@error")({ fg = red }), -- syntax/parser errors.
 		sym("@lsp.type.class.typescript")({ fg = white }),
+		sym("@lsp.type.interface.typescript")({ fg = white }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
