@@ -283,6 +283,7 @@ return lush(function(injected_functions)
 		sym("@lsp.type.interface.typescript")({ fg = white }),
 		sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
+		sym("@lsp.type.property.typescript")({ fg = purple }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
@@ -293,5 +294,7 @@ return lush(function(injected_functions)
 		NvimTreeIndentMarker({ fg = hsl(204, 3, 32) }),
 		NvimTreeRootFolder({ fg = folder }),
 		NvimTreeFolderIcon({ fg = folder }),
+
+		htmlString({ fg = html_css_green }),
 	}
 end)
