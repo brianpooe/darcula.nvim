@@ -316,4 +316,4 @@ return lush(function(injected_functions)
 		--sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
 	}
-endi)
+end)
