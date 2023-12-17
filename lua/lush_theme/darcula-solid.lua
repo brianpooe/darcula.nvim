@@ -136,7 +136,7 @@ return lush(function(injected_functions)
 		SpellLocal({ fg = orange, gui = un }),
 		SpellRare({ fg = yellow, gui = un }),
 		TodoBgTODO({ fg = todo, gui = it }),
-		IlluminatedWordRead({ fg = green }),
+		TodoFgTODO({ fg = todo, gui = it }),
 
 		---- Language Server Protocol highlight groups ---------------------------------
 
@@ -282,10 +282,11 @@ return lush(function(injected_functions)
 
 		sym("@tag.delimiter.html")({ fg = html_css_yellow }),
 		sym("@string.html")({ fg = html_css_green }),
-		sym("@tag.attribute.html")({ fg = white }),
+		sym("@tag.attribute.html")({ fg = html_css_white }),
 		sym("@keyword.html")({ fg = purple }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
+		sym("@lsp.type.class.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
 		sym("@lsp.type.property.typescript")({ fg = purple }),
 		sym("@lsp.mod.declaration.typescript")({ fg = purple }),
