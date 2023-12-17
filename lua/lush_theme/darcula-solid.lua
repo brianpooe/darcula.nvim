@@ -312,12 +312,12 @@ return lush(function(injected_functions)
 		cssMediaProp({ fg = html_css_white }),
 		sassCssAttribute({ fg = html_css_green }),
 		--sassDefinition({ fg = orange }),
-		--sassCssAttribute({ fg = html_css_green }),
+		sassCssAttribute({ fg = html_css_green }),
 		sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
 		cssColor({ fg = blue }),
-		--		StorageClass({ fg = html_css_white }),
 		cssBorderAttr({ fg = html_css_green }),
-		cssValueLength({ fg = html_css_green }),
+		cssValueLength({ fg = blue }),
+		cssUnitDecorators({ fg = html_css_green }),
 	}
 end)
