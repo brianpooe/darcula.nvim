@@ -301,7 +301,7 @@ return lush(function(injected_functions)
 		sym("@lsp.type.namespace.typescript")({ fg = white }),
 		sym("@lsp.typemod.member.declaration.typescript")({ fg = yellow }),
 		sym("@lsp.typemod.parameter.declaration.typescript")({ fg = white }),
-		sym("@lsp.typemod.variable.declaration.typescript ")({ fg = white }),
+		sym("@lsp.typemod.variable.declaration.typescript")({ fg = white }),
 
 		sym("@label.json")({ fg = purple }),
 		sym("@label.jsonc")({ fg = purple }),
