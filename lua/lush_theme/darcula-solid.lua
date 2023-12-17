@@ -220,6 +220,7 @@ return lush(function(injected_functions)
 		sym("@boolean")({ Boolean }),
 		sym("@character")({ Character }),
 		sym("@string")({ String }),
+		sym("@string.typescript")({ fg = html_css_green }),
 		sym("@string.regex")({ Character }),
 		sym("@string.escape")({ Character }), -- escape characters within a string
 		sym("@symbol")({ fg = green, gui = it }), -- For identifiers referring to symbols or atoms.
@@ -281,9 +282,10 @@ return lush(function(injected_functions)
 		sym("@keyword.html")({ fg = purple }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
-		sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
+		-- sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
 		sym("@lsp.type.property.typescript")({ fg = purple }),
+		sym("@lsp.mod.declaration.typescript ")({ fg = purple }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
