@@ -230,11 +230,11 @@ return lush(function(injected_functions)
 
 		sym("@field")({ fg = purple }),
 		sym("@property")({ fg = purple }),
-		sym("@property.typescript")({ fg = purple }),
+		sym("@property.typescript")({ fg = white }),
 		sym("@parameter")({ fg = fg }),
 		sym("@parameter.reference")({ fg = fg }),
 		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
-		sym("@variable.typescript")({ fg = purple }), -- Any variable name that does not have another highlight
+		sym("@variable.typescript")({ fg = white }), -- Any variable name that does not have another highlight
 		sym("@variable.builtin")({ Constant, gui = it }), -- Variable names that are defined by the languages like `this` or `self`.
 
 		sym("@function")({ Function }),
