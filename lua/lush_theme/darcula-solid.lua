@@ -202,7 +202,7 @@ return lush(function(injected_functions)
 		Special({ fg = orange }), -- (preferred) any special symbol
 		SpecialChar({ Special }), -- special character in a constant
 		Tag({ fg = yellow }), -- you can use CTRL-] on this
-		Delimiter({ Special }), -- character that needs attention
+		Delimiter({ fg = blue }), -- character that needs attention
 		SpecialComment({ Special }), -- special things inside a comment
 		Debug({ Special }), -- debugging statements
 
@@ -266,6 +266,7 @@ return lush(function(injected_functions)
 		sym("@type.builtin.typescript")({ fg = orange }),
 		sym("@parameter.typescript")({ fg = white }),
 		sym("@punctuation.delimiter.typescript")({ fg = white }),
+		sym("@punctuation.special.typescript")({ fg = white }),
 
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
 		sym("@punctuation.bracket")({ fg = fg }), -- brackets and parens.
