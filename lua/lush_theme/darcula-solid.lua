@@ -287,6 +287,7 @@ return lush(function(injected_functions)
 		sym("@constant.html")({ fg = html_css_white }),
 		sym("@text.title.html")({ fg = html_css_white }),
 		sym("@keyword.html")({ fg = purple }),
+		sym("@text.uri.html")({ fg = html_css_green, gui = un }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
 		sym("@lsp.type.class.typescript")({ fg = white }),
@@ -311,8 +312,6 @@ return lush(function(injected_functions)
 		NvimTreeRootFolder({ fg = folder }),
 		NvimTreeFolderIcon({ fg = folder }),
 
-		htmlString({ fg = html_css_green }),
-		htmlLink({ fg = html_css_green, gui = un }),
 		sassClass({ fg = html_css_yellow }),
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
