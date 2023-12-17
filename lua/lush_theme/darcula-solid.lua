@@ -285,7 +285,7 @@ return lush(function(injected_functions)
 		sym("@string.html")({ fg = html_css_green }),
 		sym("@tag.attribute.html")({ fg = html_css_white }),
 		sym("@constant.html")({ fg = html_css_white }),
-		sym(" @text.title.html")({ fg = html_css_white }),
+		sym("@text.title.html")({ fg = html_css_white }),
 		sym("@keyword.html")({ fg = purple }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
