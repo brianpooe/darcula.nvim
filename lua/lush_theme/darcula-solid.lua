@@ -195,7 +195,7 @@ return lush(function(injected_functions)
 		PreCondit({ PreProc }), -- preprocessor #if, #else, #endif, etc.
 
 		Type({ fg = fg }),
-		StorageClass({ fg = magenta }), -- static, register, volatile, etc.
+		StorageClass({ fg = white }), -- static, register, volatile, etc.
 		Structure({ fg = magenta }), -- struct, union, enum, etc.
 		Typedef({ Type }),
 
@@ -310,6 +310,7 @@ return lush(function(injected_functions)
 		sassClass({ fg = html_css_yellow }),
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
+		cssPositioningProp({ fg = html_css_white }),
 		sassCssAttribute({ fg = html_css_green }),
 		sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
@@ -317,5 +318,7 @@ return lush(function(injected_functions)
 		cssBorderAttr({ fg = html_css_green }),
 		cssValueLength({ fg = blue }),
 		cssUnitDecorators({ fg = html_css_green }),
+		cssFlexibleBoxAttr({ fg = html_css_green }),
+		cssMultiColumnAttr({ fg = html_css_green }),
 	}
 end)
