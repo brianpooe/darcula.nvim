@@ -313,7 +313,11 @@ return lush(function(injected_functions)
 		sassCssAttribute({ fg = html_css_green }),
 		--sassDefinition({ fg = orange }),
 		--sassCssAttribute({ fg = html_css_green }),
-		--sassAmpersand({ fg = html_css_yellow }),
+		sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
+		cssColor({ fg = blue }),
+		StorageClass({ fg = html_css_white }),
+		cssBorderAttr({ fg = html_css_green }),
+		cssValueLength({ fg = html_css_green }),
 	}
 end)
