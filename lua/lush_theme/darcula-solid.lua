@@ -265,6 +265,7 @@ return lush(function(injected_functions)
 		sym("@type.builtin")({ Type, gui = it }),
 		sym("@type.builtin.typescript")({ fg = orange }),
 		sym("@parameter.typescript")({ fg = white }),
+		sym("@punctuation.delimiter.typescript")({ fg = white }),
 
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
 		sym("@punctuation.bracket")({ fg = fg }), -- brackets and parens.
