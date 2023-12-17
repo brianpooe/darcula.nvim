@@ -336,5 +336,7 @@ return lush(function(injected_functions)
 		cssUIAttr({ fg = html_css_green }),
 		cssCommonAttr({ fg = html_css_green }),
 		sassDefinition({ fg = orange }),
+
+		htmlString({ fg = blue }),
 	}
 end)
