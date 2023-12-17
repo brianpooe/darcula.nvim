@@ -63,6 +63,7 @@ local decorator_yellow = hsl("#bbb529")
 local html_css_yellow = hsl("#e8bf6a")
 local html_css_green = hsl("#a5c261")
 local html_css_white = hsl("#bababa")
+local todo = hsl("#a8c023")
 
 return lush(function(injected_functions)
 	local sym = injected_functions.sym
@@ -134,6 +135,8 @@ return lush(function(injected_functions)
 		SpellCap({ fg = magenta, gui = un }),
 		SpellLocal({ fg = orange, gui = un }),
 		SpellRare({ fg = yellow, gui = un }),
+		TodoBgTODO({ fg = todo, gui = it }),
+		IlluminatedWordRead({ fg = green }),
 
 		---- Language Server Protocol highlight groups ---------------------------------
 
