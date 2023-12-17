@@ -230,7 +230,7 @@ return lush(function(injected_functions)
 
 		sym("@field")({ fg = purple }),
 		sym("@property")({ fg = purple }),
-		sym("@property.typescript")({ fg = white }),
+		sym("@property.typescript")({ fg = purple }),
 		sym("@parameter")({ fg = fg }),
 		sym("@parameter.reference")({ fg = fg }),
 		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
@@ -259,7 +259,7 @@ return lush(function(injected_functions)
 		sym("@include.typescript")({ fg = orange }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
 		sym("@type")({ fg = white }),
-		sym("@type.typescript")({ fg = purple }),
+		sym("@type.typescript")({ fg = white }),
 		sym("@type.builtin")({ Type, gui = it }),
 		sym("@type.builtin.typescript")({ fg = orange }),
 		sym("@parameter.typescript")({ fg = white }),
