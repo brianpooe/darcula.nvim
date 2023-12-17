@@ -312,6 +312,7 @@ return lush(function(injected_functions)
 		NvimTreeFolderIcon({ fg = folder }),
 
 		htmlString({ fg = html_css_green }),
+		htmlLink({ fg = html_css_green, gui = un }),
 		sassClass({ fg = html_css_yellow }),
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
