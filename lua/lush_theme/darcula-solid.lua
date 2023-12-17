@@ -274,8 +274,6 @@ return lush(function(injected_functions)
 		sym("@text.uri")({ fg = green, gui = it }), -- Any URI like a link or email
 
 		sym("@error")({ fg = red }), -- syntax/parser errors.
-		sym("@lsp.type.class.typescript")({ fg = white }),
-		sym("@lsp.type.interface.typescript")({ fg = white }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
