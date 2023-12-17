@@ -234,7 +234,7 @@ return lush(function(injected_functions)
 		sym("@parameter")({ fg = fg }),
 		sym("@parameter.reference")({ fg = fg }),
 		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
-		sym("@variable.typescript")({ fg = white }), -- Any variable name that does not have another highlight
+		sym("@variable.typescript")({ fg = purple }), -- Any variable name that does not have another highlight
 		sym("@variable.builtin")({ Constant, gui = it }), -- Variable names that are defined by the languages like `this` or `self`.
 
 		sym("@function")({ Function }),
@@ -259,7 +259,7 @@ return lush(function(injected_functions)
 		sym("@include.typescript")({ fg = orange }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
 		sym("@type")({ fg = white }),
-		sym("@type.typescript")({ fg = white }),
+		sym("@type.typescript")({ fg = purple }),
 		sym("@type.builtin")({ Type, gui = it }),
 		sym("@parameter.typescript")({ fg = white }),
 
