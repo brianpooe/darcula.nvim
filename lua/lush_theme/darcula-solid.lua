@@ -261,6 +261,7 @@ return lush(function(injected_functions)
 		sym("@type")({ fg = white }),
 		sym("@type.typescript")({ fg = purple }),
 		sym("@type.builtin")({ Type, gui = it }),
+		sym("@type.builtin.typescript")({ fg = orange }),
 		sym("@parameter.typescript")({ fg = white }),
 
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
