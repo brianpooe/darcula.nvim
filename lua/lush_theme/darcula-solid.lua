@@ -307,13 +307,13 @@ return lush(function(injected_functions)
 		NvimTreeFolderIcon({ fg = folder }),
 
 		htmlString({ fg = html_css_green }),
-		sassClass({ fg = html_css_yellow }),
+		--sassClass({ fg = html_css_yellow }),
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
-		sassCssAttribute({ fg = html_css_green }),
-		sassDefinition({ fg = orange }),
-		sassCssAttribute({ fg = html_css_green }),
-		sassAmpersand({ fg = html_css_yellow }),
+		--sassCssAttribute({ fg = html_css_green }),
+		--sassDefinition({ fg = orange }),
+		--sassCssAttribute({ fg = html_css_green }),
+		--sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
 	}
-end)
+endi)
