@@ -310,7 +310,7 @@ return lush(function(injected_functions)
 		sassClass({ fg = html_css_yellow }),
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
-		--sassCssAttribute({ fg = html_css_green }),
+		sassCssAttribute({ fg = html_css_green }),
 		--sassDefinition({ fg = orange }),
 		--sassCssAttribute({ fg = html_css_green }),
 		--sassAmpersand({ fg = html_css_yellow }),
