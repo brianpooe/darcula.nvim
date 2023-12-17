@@ -316,7 +316,7 @@ return lush(function(injected_functions)
 		sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
 		cssColor({ fg = blue }),
-		StorageClass({ fg = html_css_white }),
+		--		StorageClass({ fg = html_css_white }),
 		cssBorderAttr({ fg = html_css_green }),
 		cssValueLength({ fg = html_css_green }),
 	}
