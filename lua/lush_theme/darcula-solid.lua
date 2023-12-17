@@ -311,8 +311,6 @@ return lush(function(injected_functions)
 		cssBraces({ fg = html_css_white }),
 		cssMediaProp({ fg = html_css_white }),
 		sassCssAttribute({ fg = html_css_green }),
-		--sassDefinition({ fg = orange }),
-		sassCssAttribute({ fg = html_css_green }),
 		sassAmpersand({ fg = html_css_yellow }),
 		cssTagName({ fg = html_css_yellow }),
 		cssColor({ fg = blue }),
