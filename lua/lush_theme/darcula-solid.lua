@@ -299,6 +299,7 @@ return lush(function(injected_functions)
 		sym("@lsp.typemod.parameter.declaration.typescript")({ fg = white }),
 
 		sym("@label.json")({ fg = purple }),
+		sym("@label.jsonc")({ fg = purple }),
 		sym("@boolean.jsonc")({ fg = orange }),
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
