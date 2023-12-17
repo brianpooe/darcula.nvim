@@ -213,6 +213,8 @@ return lush(function(injected_functions)
 		Error({ fg = red }), --  any erroneous construct
 		Todo({ gui = bf }), --  anything that needs extra attention
 
+		NeoTreeGitUntracked({ fg = white }),
+
 		---- TREESITTER ----------------------------------------------------------------
 
 		sym("@constant")({ Constant }),
@@ -302,6 +304,7 @@ return lush(function(injected_functions)
 		sym("@label.json")({ fg = purple }),
 		sym("@label.jsonc")({ fg = purple }),
 		sym("@boolean.jsonc")({ fg = orange }),
+
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
 		markdownLinkText({ fg = fg }),
