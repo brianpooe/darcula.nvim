@@ -258,6 +258,7 @@ return lush(function(injected_functions)
 		sym("@type")({ fg = white }),
 		sym("@type.typescript")({ fg = white }),
 		sym("@type.builtin")({ Type, gui = it }),
+		sym("@parameter.typescript")({ fg = white }),
 
 		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
 		sym("@punctuation.bracket")({ fg = fg }), -- brackets and parens.
@@ -282,10 +283,11 @@ return lush(function(injected_functions)
 		sym("@keyword.html")({ fg = purple }),
 
 		sym("@lsp.type.interface.typescript")({ fg = white }),
-		-- sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
 		sym("@lsp.type.property.typescript")({ fg = purple }),
 		sym("@lsp.mod.declaration.typescript")({ fg = purple }),
+		sym("@lsp.mod.defaultLibrary.typescript")({ fg = decorator_yellow }),
+		sym("@lsp.type.namespace.typescript")({ fg = white }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
