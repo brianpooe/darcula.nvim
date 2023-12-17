@@ -289,6 +289,7 @@ return lush(function(injected_functions)
 		sym("@lsp.type.interface.typescript")({ fg = white }),
 		sym("@lsp.type.class.typescript")({ fg = white }),
 		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
+		sym("@lsp.typemod.interface.declaration.typescript")({ fg = white }),
 		sym("@lsp.type.property.typescript")({ fg = purple }),
 		sym("@lsp.mod.declaration.typescript")({ fg = purple }),
 		sym("@lsp.typemod.class.defaultLibrary.typescript")({ fg = yellow }),
