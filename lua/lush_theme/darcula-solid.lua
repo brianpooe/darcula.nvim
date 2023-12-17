@@ -278,6 +278,10 @@ return lush(function(injected_functions)
 		sym("@tag.delimiter.html")({ fg = html_css_yellow }),
 		sym("@string.html")({ fg = html_css_green }),
 		sym("@tag.attribute.html")({ fg = white }),
+		sym("@keyword.html")({ fg = purple }),
+
+		sym("@lsp.type.interface.typescript")({ fg = white }),
+		sym("@lsp.typemod.property.declaration.typescript")({ fg = white }),
 
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
