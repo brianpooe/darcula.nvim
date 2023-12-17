@@ -320,5 +320,9 @@ return lush(function(injected_functions)
 		cssUnitDecorators({ fg = html_css_green }),
 		cssFlexibleBoxAttr({ fg = html_css_green }),
 		cssMultiColumnAttr({ fg = html_css_green }),
+		cssPositioningAttr({ fg = html_css_green }),
+		cssUIAttr({ fg = html_css_green }),
+		cssCommonAttr({ fg = html_css_green }),
+		sassDefinition({ fg = orange }),
 	}
 end)
