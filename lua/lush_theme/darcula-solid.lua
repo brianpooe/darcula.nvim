@@ -225,7 +225,7 @@ return lush(function(injected_functions)
 		sym("@boolean")({ Boolean }),
 		sym("@character")({ Character }),
 		sym("@string")({ String }),
-		sym("@string.typescript")({ fg = html_css_green }),
+		sym("@string.typescript")({ fg = green }),
 		sym("@string.regex")({ Character }),
 		sym("@string.escape")({ Character }), -- escape characters within a string
 		sym("@symbol")({ fg = green, gui = it }), -- For identifiers referring to symbols or atoms.
@@ -309,6 +309,15 @@ return lush(function(injected_functions)
 		sym("@label.jsonc")({ fg = purple }),
 		sym("@boolean.jsonc")({ fg = orange }),
 
+		sym("@punctuation.bracket.angular")({ fg = orange }),
+		sym("@tag.delimiter.angular")({ fg = yellow }),
+		sym("@tag.attribute.angular")({ fg = white }),
+		sym("@string.angular")({ fg = html_css_green }),
+
+		sym("@property.scss")({ fg = html_css_yellow }),
+		sym("@type.scss")({ fg = html_css_yellow }),
+		sym("@string.scss")({ fg = html_css_green }),
+
 		-- Other stuff
 		HelpHyperTextJump({ fg = yellow }),
 		markdownLinkText({ fg = fg }),
@@ -336,7 +345,5 @@ return lush(function(injected_functions)
 		cssUIAttr({ fg = html_css_green }),
 		cssCommonAttr({ fg = html_css_green }),
 		sassDefinition({ fg = orange }),
-
-		htmlString({ fg = blue }),
 	}
 end)
