@@ -225,7 +225,7 @@ return lush(function(injected_functions)
 		sym("@boolean")({ Boolean }),
 		sym("@character")({ Character }),
 		sym("@string")({ String }),
-		sym("@string.typescript")({ fg = green }),
+		sym("@string.typescript")({ fg = html_css_green }),
 		sym("@string.regex")({ Character }),
 		sym("@string.escape")({ Character }), -- escape characters within a string
 		sym("@symbol")({ fg = green, gui = it }), -- For identifiers referring to symbols or atoms.
