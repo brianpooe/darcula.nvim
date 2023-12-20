@@ -313,6 +313,7 @@ return lush(function(injected_functions)
 		sym("@tag.delimiter.angular")({ fg = yellow }),
 		sym("@tag.attribute.angular")({ fg = white }),
 		sym("@string.angular")({ fg = html_css_green }),
+		sym("@keyword.angular")({ fg = purple }),
 
 		sym("@property.scss")({ fg = html_css_yellow }),
 		sym("@type.scss")({ fg = html_css_yellow }),
