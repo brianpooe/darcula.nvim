@@ -1,351 +1,201 @@
--- darcula-solid/init.lua
--- Mantainer: Briones Dos Santos Gabriel <@briones-gabriel>
--- last update: 2021-05-16
---
--- Built with,
---
---        ,gggg,
---       d8" "8I                         ,dPYb,
---       88  ,dP                         IP'`Yb
---    8888888P"                          I8  8I
---       88                              I8  8'
---       88        gg      gg    ,g,     I8 dPgg,
---  ,aa,_88        I8      8I   ,8'8,    I8dP" "8I
--- dP" "88P        I8,    ,8I  ,8'  Yb   I8P    I8
--- Yb,_,d88b,,_   ,d8b,  ,d8b,,8'_   8) ,d8     I8,
---  "Y8P"  "Y888888P'"Y88P"`Y8P' "YY8P8P88P     `Y8
+-- darcula-solid.nvim
+-- A Neovim theme inspired by the JetBrains Darcula theme.
+-- Author: brianpooe
+-- License: MIT
 
 local lush = require("lush")
 local hsl = lush.hsl
 
---------------------------------------------------
+-- The official Darcula color palette
+-- Sourced from JetBrains IDEs and community documentation.
+local p = {
+	-- Base Colors
+	bg = hsl("#2B2B2B"), -- Editor background
+	bg_light = hsl("#3C3F41"), -- UI elements like statusline, popups
+	bg_gutter = hsl("#313335"), -- Gutter background
+	bg_visual = hsl("#214283"), -- Visual selection background
+	fg = hsl("#A9B7C6"), -- Default foreground
+	fg_dark = hsl("#606366"), -- Gutter numbers, inactive elements
+	fg_comment = hsl("#808080"), -- Comments
 
--- GUI options
-local bf, it, un = "bold", "italic", "underline"
+	-- Syntax Colors
+	orange = hsl("#CC7832"), -- Keywords (if, else, for), statements
+	yellow = hsl("#FFC66D"), -- Functions, methods, classes
+	green = hsl("#6A8759"), -- Strings
+	purple = hsl("#9876AA"), -- Variables, constants
+	cyan = hsl("#6897BB"), -- Numbers
+	pink = hsl("#CB77B4"), -- Tags, annotations
+	white = hsl("#FFFFFF"),
 
--- Base colors
-local c0 = hsl(240, 1, 15)
-local c1 = c0.lighten(5)
-local c2 = c1.lighten(2)
-local c3 = c2.lighten(20).sa(10)
-local c4 = c3.lighten(10)
-local c5 = c4.lighten(20)
-local c6 = c5.lighten(70)
-local c7 = c6.lighten(80)
+	-- Diagnostic Colors
+	error = hsl("#FF6B68"),
+	warning = hsl("#FDA44E"),
+	info = hsl("#82AAD9"),
+	hint = hsl("#57B6B6"),
+}
 
--- Set base colors
-local bg = hsl("#2b2b2b") -- base background
-local overbg = c1 -- other backgrounds
-local subtle = c2 -- out-of-buffer elements
-
-local fg = hsl("#a9b7c6")
-local comment = hsl("#808080") -- comments
-local folder = hsl(202, 9, 57)
-local treebg = hsl(220, 3, 19)
-local mid = c2.lighten(10) -- either foreground or background
-local faded = fg.darken(45) -- non-important text elements
-local pop = c7
-
--- Color palette
-local red = hsl(1, 77, 59)
-local orange = hsl("#cc7832")
-local yellow = hsl("#ffc66d")
-
-local green = hsl("#6a8759")
-local teal = hsl(150, 40, 50)
-local cyan = hsl(180, 58, 38)
-
-local blue = hsl("#6897bb")
-local purple = hsl("#9876aa")
-local magenta = hsl(310, 40, 70)
-local white = hsl("#a9b7c6")
-local decorator_yellow = hsl("#bbb529")
-local html_css_yellow = hsl("#e8bf6a")
-local html_css_green = hsl("#a5c261")
-local html_css_white = hsl("#bababa")
-local todo = hsl("#a8c023")
-
-return lush(function(injected_functions)
-	local sym = injected_functions.sym
+-- The theme definition using lush.nvim
+return lush(function()
 	return {
-		Normal({ fg = fg, bg = bg }),
-		NormalFloat({ fg = fg, bg = overbg }),
-		NormalNC({ fg = fg, bg = bg.da(10) }), -- normal text in non-current windows
 
-		Comment({ fg = comment }),
-		Whitespace({ fg = mid }), -- 'listchars'
-		Conceal({ fg = hsl(0, 0, 25) }),
-		NonText({ fg = treebg }), -- characters that don't exist in the text
-		SpecialKey({ Whitespace }), -- Unprintable characters: text displayed differently from what it really is
+		-- == Neovim UI Groups == --
+		Normal({ bg = p.bg, fg = p.fg }),
+		NormalNC({ bg = p.bg, fg = p.fg }), -- Non-current windows
+		SignColumn({ bg = p.bg, fg = p.fg_dark }),
+		LineNr({ bg = p.bg, fg = p.fg_dark }),
+		CursorLineNr({ bg = p.bg, fg = p.yellow, style = "bold" }),
+		CursorLine({ bg = p.bg_light }),
+		ColorColumn({ bg = p.bg_light }),
 
-		Cursor({ fg = bg, bg = fg }),
-		TermCursor({ fg = bg, bg = fg }),
-		ColorColumn({ bg = overbg }),
-		CursorColumn({ bg = subtle }),
-		CursorLine({ CursorColumn }),
-		MatchParen({ fg = pop, bg = mid }),
+		Visual({ bg = p.bg_visual }),
+		VisualNOS({ bg = p.bg_visual }),
 
-		LineNr({ fg = faded }),
-		CursorLineNr({ fg = orange }),
-		SignColumn({ LineNr }),
-		VertSplit({ fg = overbg, bg = bg }), -- column separating vertically split windows
-		Folded({ fg = comment, bg = overbg }),
-		FoldColumn({ LineNr }),
+		Pmenu({ bg = p.bg_light, fg = p.fg }),
+		PmenuSel({ bg = p.bg_visual, fg = p.white }),
+		PmenuSbar({ bg = p.bg_light }),
+		PmenuThumb({ bg = p.fg_dark }),
 
-		Pmenu({ bg = overbg }), -- Popup menu normal item
-		PmenuSel({ bg = mid }), -- selected item
-		PmenuSbar({ Pmenu }), -- scrollbar
-		PmenuThumb({ PmenuSel }), -- Thumb of the scrollbar
-		WildMenu({ Pmenu }), -- current match in 'wildmenu' completion
-		QuickFixLine({ fg = pop }), -- Current |quickfix| item in the quickfix window
+		StatusLine({ bg = p.bg_light, fg = p.fg }),
+		StatusLineNC({ bg = p.bg_gutter, fg = p.fg_dark }),
+		TabLine({ bg = p.bg_gutter, fg = p.fg_dark }),
+		TabLineFill({ bg = p.bg_gutter }),
+		TabLineSel({ bg = p.bg_light, fg = p.white }),
 
-		StatusLine({ bg = subtle }),
-		StatusLineNC({ fg = faded, bg = overbg }),
+		VertSplit({ fg = p.bg_gutter, bg = p.bg }),
+		WinSeparator({ fg = p.bg_gutter, bg = p.bg }),
 
-		TabLine({ bg = mid }), -- not active tab page label
-		TabLineFill({ bg = overbg }), -- where there are no labels
-		TabLineSel({ bg = faded }), -- active tab page label
+		Search({ bg = hsl("#474131"), fg = p.yellow }),
+		IncSearch({ bg = hsl("#474131"), fg = p.yellow }),
+		CurSearch({ link = "IncSearch" }),
 
-		Search({ fg = bg, bg = yellow }), -- Last search pattern highlighting (see 'hlsearch')
-		IncSearch({ Search }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		Substitute({ Search }), -- |:substitute| replacement text highlighting
+		Title({ fg = p.orange, style = "bold" }),
+		Directory({ fg = p.cyan }),
+		ErrorMsg({ fg = p.error }),
+		MoreMsg({ fg = p.green }),
+		Question({ fg = p.cyan }),
+		ModeMsg({ fg = p.fg, style = "bold" }),
+		Conceal({ fg = p.fg_dark, bg = p.bg }),
+		Folded({ fg = p.fg_comment, bg = p.bg_light }),
 
-		Visual({ bg = c2 }), -- Visual mode selection
-		VisualNOS({ bg = subtle }), -- Visual mode selection when Vim is "Not Owning the Selection".
+		-- == Standard Syntax Groups (Fallback for no Tree-sitter) == --
+		Comment({ fg = p.fg_comment, style = "italic" }),
+		String({ fg = p.green }),
+		Number({ fg = p.cyan }),
+		Constant({ fg = p.purple }),
+		Character({ fg = p.purple }),
+		Boolean({ fg = p.orange }),
 
-		ModeMsg({ fg = faded }), -- 'showmode' message (e.g. "-- INSERT -- ")
-		MsgArea({ Normal }), -- Area for messages and cmdline
-		MsgSeparator({ fg = orange }), -- Separator for scrolled messages `msgsep` flag of 'display'
-		MoreMsg({ fg = green }), -- |more-prompt|
-		Question({ fg = green }), -- |hit-enter| prompt and yes/no questions
-		ErrorMsg({ fg = red }), -- error messages on the command line
-		WarningMsg({ fg = red }), -- warning messages
+		Keyword({ fg = p.orange, style = "bold" }),
+		Statement({ fg = p.orange, style = "bold" }),
+		Operator({ fg = p.fg }),
+		Conditional({ fg = p.orange, style = "bold" }),
+		Repeat({ fg = p.orange, style = "bold" }),
 
-		Directory({ fg = blue }), -- directory names (and other special names in listings)
-		Title({ fg = blue }), -- titles for output from ":set all" ":autocmd" etc.
+		Identifier({ fg = p.fg }),
+		Function({ fg = p.yellow }),
+		Type({ fg = p.yellow, style = "italic" }),
+		PreProc({ fg = p.orange }),
 
-		DiffAdd({ fg = green.da(20) }),
-		DiffDelete({ fg = red }),
-		DiffChange({ fg = yellow.da(20) }),
-		DiffText({ DiffChange, gui = un }),
-		DiffAdded({ DiffAdd }),
-		DiffRemoved({ DiffDelete }),
+		Special({ fg = p.pink }),
+		Todo({ bg = p.bg_light, fg = p.purple, style = "bold" }),
+		Underlined({ style = "underline" }),
 
-		SpellBad({ fg = red, gui = un }),
-		SpellCap({ fg = magenta, gui = un }),
-		SpellLocal({ fg = orange, gui = un }),
-		SpellRare({ fg = yellow, gui = un }),
-		TodoBgTODO({ fg = todo, gui = it }),
-		TodoFgTODO({ fg = todo, gui = it }),
+		-- == Tree-sitter Highlight Groups == --
+		["@comment"] = { link = "Comment" },
+		["@string"] = { link = "String" },
+		["@string.regex"] = { fg = p.pink },
+		["@string.escape"] = { fg = p.pink },
+		["@character"] = { link = "Character" },
+		["@number"] = { link = "Number" },
+		["@boolean"] = { link = "Boolean" },
+		["@float"] = { link = "Number" },
 
-		---- Language Server Protocol highlight groups ---------------------------------
+		["@function"] = { link = "Function" },
+		["@function.builtin"] = { fg = p.yellow, style = "italic" },
+		["@function.call"] = { link = "Function" },
+		["@function.macro"] = { fg = p.pink },
 
-		LspReferenceText({ bg = mid }), -- highlighting "text" references
-		LspReferenceRead({ bg = mid }), -- highlighting "read" references
-		LspReferenceWrite({ bg = mid }), -- highlighting "write" references
+		["@method"] = { link = "Function" },
+		["@method.call"] = { link = "Function" },
 
-		-- base highlight groups. Other LspDiagnostic highlights link to these by default (except Underline)
-		LspDiagnosticsDefaultError({ fg = red }),
-		LspDiagnosticsDefaultWarning({ fg = yellow }),
-		LspDiagnosticsDefaultInformation({ fg = fg }),
-		LspDiagnosticsDefaultHint({ fg = teal }),
+		["@constructor"] = { fg = p.yellow },
+		["@parameter"] = { fg = p.fg, style = "italic" },
 
-		--LspDiagnosticsVirtualTextError       { };    -- "Error" diagnostic virtual text
-		--LspDiagnosticsVirtualTextWarning     { };    -- "Warning" diagnostic virtual text
-		--LspDiagnosticsVirtualTextInformation { };    -- "Information" diagnostic virtual text
-		--LspDiagnosticsVirtualTextHint        { };    -- "Hint" diagnostic virtual text
-		LspDiagnosticsUnderlineError({ gui = un }), -- underline "Error" diagnostics
-		LspDiagnosticsUnderlineWarning({ gui = un }), -- underline "Warning" diagnostics
-		LspDiagnosticsUnderlineInformation({ gui = un }), -- underline "Information" diagnostics
-		LspDiagnosticsUnderlineHint({ gui = un }), -- underline "Hint" diagnostics
-		--LspDiagnosticsFloatingError          { };    -- color "Error" diagnostic messages in diagnostics float
-		--LspDiagnosticsFloatingWarning        { };    -- color "Warning" diagnostic messages in diagnostics float
-		--LspDiagnosticsFloatingInformation    { };    -- color "Information" diagnostic messages in diagnostics float
-		--LspDiagnosticsFloatingHint           { };    -- color "Hint" diagnostic messages in diagnostics float
-		--LspDiagnosticsSignError              { };    -- "Error" signs in sign column
-		--LspDiagnosticsSignWarning            { };    -- "Warning" signs in sign column
-		--LspDiagnosticsSignInformation        { };    -- "Information" signs in sign column
-		--LspDiagnosticsSignHint               { };    -- "Hint" signs in sign column
+		["@keyword"] = { link = "Keyword" },
+		["@keyword.function"] = { link = "Keyword" },
+		["@keyword.operator"] = { link = "Keyword" },
+		["@keyword.return"] = { link = "Keyword" },
 
-		---- Standard highlight groups -------------------------------------------------
-		-- See :help group-name
+		["@conditional"] = { link = "Conditional" },
+		["@repeat"] = { link = "Repeat" },
+		["@label"] = { fg = p.pink },
+		["@operator"] = { link = "Operator" },
+		["@exception"] = { fg = p.orange, style = "bold" },
 
-		Constant({ fg = orange }),
-		Number({ fg = blue }),
-		Float({ Number }),
-		Boolean({ Constant }),
-		Character({ fg = orange }),
-		String({ fg = green }),
+		["@type"] = { link = "Type" },
+		["@type.builtin"] = { fg = p.yellow, style = "italic,bold" },
+		["@type.definition"] = { fg = p.fg },
 
-		Identifier({ fg = fg }),
-		Function({ fg = yellow }),
+		["@constant"] = { link = "Constant" },
+		["@constant.builtin"] = { fg = p.purple, style = "italic" },
+		["@constant.macro"] = { link = "Constant" },
 
-		Statement({ fg = orange }), -- (preferred) any statement
-		Conditional({ Statement }),
-		Repeat({ Statement }),
-		Label({ Statement }), -- case, default, etc.
-		Operator({ fg = fg }),
-		Keyword({ Statement }), -- any other keyword
-		Exception({ fg = red }),
+		["@variable"] = { fg = p.purple },
+		["@variable.builtin"] = { fg = p.purple, style = "italic,bold" },
+		["@property"] = { fg = p.fg },
 
-		PreProc({ fg = decorator_yellow }), --  generic Preprocessor
-		Include({ PreProc }), -- preprocessor #include
-		Define({ PreProc }), -- preprocessor #define
-		Macro({ PreProc }), -- same as Define
-		PreCondit({ PreProc }), -- preprocessor #if, #else, #endif, etc.
+		["@include"] = { link = "PreProc" },
+		["@namespace"] = { fg = p.yellow },
 
-		Type({ fg = fg }),
-		StorageClass({ fg = white }), -- static, register, volatile, etc.
-		Structure({ fg = magenta }), -- struct, union, enum, etc.
-		Typedef({ Type }),
+		["@punctuation.delimiter"] = { fg = p.fg },
+		["@punctuation.bracket"] = { fg = p.fg },
+		["@punctuation.special"] = { link = "Special" },
 
-		Special({ fg = orange }), -- (preferred) any special symbol
-		SpecialChar({ Special }), -- special character in a constant
-		Tag({ fg = yellow }), -- you can use CTRL-] on this
-		Delimiter({ fg = blue }), -- character that needs attention
-		SpecialComment({ Special }), -- special things inside a comment
-		Debug({ Special }), -- debugging statements
+		["@tag"] = { fg = p.orange },
+		["@tag.attribute"] = { fg = p.purple, style = "italic" },
+		["@tag.delimiter"] = { fg = p.fg_dark },
 
-		Underlined({ gui = un }),
-		Bold({ gui = bf }),
-		Italic({ gui = it }),
-		Ignore({ fg = faded }), --  left blank, hidden  |hl-Ignore|
-		Error({ fg = red }), --  any erroneous construct
-		Todo({ gui = bf }), --  anything that needs extra attention
+		["@text"] = { fg = p.fg },
+		["@text.strong"] = { style = "bold" },
+		["@text.emphasis"] = { style = "italic" },
+		["@text.underline"] = { style = "underline" },
+		["@text.strike"] = { style = "strikethrough" },
+		["@text.title"] = { link = "Title" },
+		["@text.literal"] = { fg = p.green },
+		["@text.uri"] = { fg = p.cyan, style = "underline" },
 
-		NeoTreeGitUntracked({ fg = white }),
+		-- == LSP Diagnostics == --
+		DiagnosticError({ fg = p.error }),
+		DiagnosticWarn({ fg = p.warning }),
+		DiagnosticInfo({ fg = p.info }),
+		DiagnosticHint({ fg = p.hint }),
+		LspDiagnosticsDefaultError({ link = "DiagnosticError" }),
+		LspDiagnosticsDefaultWarning({ link = "DiagnosticWarn" }),
+		LspDiagnosticsDefaultInformation({ link = "DiagnosticInfo" }),
+		LspDiagnosticsDefaultHint({ link = "DiagnosticHint" }),
 
-		---- TREESITTER ----------------------------------------------------------------
-
-		sym("@constant")({ Constant }),
-		sym("@constant.builtin")({ Constant, gui = it }), -- constant that are built in the language: `nil` in Lua.
-		sym("@constant.macro")({ Constant, gui = bf }), -- constants that are defined by macros: `NULL` in C.
-		sym("@number")({ Number }),
-		sym("@float")({ Float }),
-		sym("@boolean")({ Boolean }),
-		sym("@character")({ Character }),
-		sym("@string")({ String }),
-		sym("@string.typescript")({ fg = html_css_green }),
-		sym("@string.regex")({ Character }),
-		sym("@string.escape")({ Character }), -- escape characters within a string
-		sym("@symbol")({ fg = green, gui = it }), -- For identifiers referring to symbols or atoms.
-
-		sym("@field")({ fg = purple }),
-		sym("@property")({ fg = purple }),
-		sym("@property.typescript")({ fg = purple }),
-		sym("@parameter")({ fg = fg }),
-		sym("@parameter.reference")({ fg = fg }),
-		sym("@variable")({ fg = white }), -- Any variable name that does not have another highlight
-		sym("@variable.typescript")({ fg = white }), -- Any variable name that does not have another highlight
-		sym("@variable.builtin")({ Constant, gui = it }), -- Variable names that are defined by the languages like `this` or `self`.
-
-		sym("@function")({ Function }),
-		sym("@function.builtin")({ Function }),
-		sym("@function.macro")({ Function }), -- macro defined fuctions: each `macro_rules` in Rust
-		sym("@method")({ Function }),
-		sym("@constructor")({ fg = fg }), -- For constructor: `{}` in Lua and Java constructors.
-		sym("@keyword.function")({ Keyword }),
-
-		sym("@keyword")({ Keyword }),
-		sym("@conditional")({ Conditional }),
-		sym("@repeat")({ Repeat }),
-		sym("@label")({ Label }),
-		sym("@operator")({ Operator }),
-		sym("@exception")({ Exception }),
-
-		sym("@namespace")({ PreProc }), -- identifiers referring to modules and namespaces.
-		sym("@annotation")({ PreProc }), -- C++/Dart attributes annotations that can be attached to the code to denote some kind of meta information
-		sym("@attribute")({ PreProc }), -- Unstable
-		sym("@attribute.typescript")({ fg = decorator_yellow }), -- Unstable
-		sym("@include")({ PreProc }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
-		sym("@include.typescript")({ fg = orange }), -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
-
-		sym("@type")({ fg = white }),
-		sym("@type.typescript")({ fg = white }),
-		sym("@type.builtin")({ Type, gui = it }),
-		sym("@type.builtin.typescript")({ fg = orange }),
-		sym("@parameter.typescript")({ fg = white }),
-		sym("@punctuation.delimiter.typescript")({ fg = white }),
-		sym("@punctuation.special.typescript")({ fg = white }),
-
-		sym("@punctuation.delimiter")({ Delimiter }), -- delimiters ie: `.`
-		sym("@punctuation.bracket")({ fg = fg }), -- brackets and parens.
-		sym("@punctuation.special")({ Delimiter }), -- special punctutation that does not fall in the catagories before.
-		sym("@comment")({ fg = comment }),
-		sym("@tag")({ Tag }), -- Tags like html tag names.
-		sym("@tag.delimiter")({ Special }), -- Tag delimiter like < > /
-		sym("@text")({ fg = fg }),
-		sym("@text.emphasis")({ fg = fg, gui = it }),
-		sym("@text.underline")({ fg = fg, gui = un }),
-		sym("@text.strike")({ fg = comment, gui = un }),
-		sym("@text.strong")({ fg = fg, gui = bf }),
-		sym("@text.title")({ fg = orange }), -- Text that is part of a title
-		sym("@text.literal")({ String }), -- Literal text
-		sym("@text.uri")({ fg = green, gui = it }), -- Any URI like a link or email
-
-		sym("@error")({ fg = red }), -- syntax/parser errors.
-
-		sym("@tag.delimiter.html")({ fg = html_css_yellow }),
-		sym("@string.html")({ fg = html_css_green }),
-		sym("@tag.attribute.html")({ fg = html_css_white }),
-		sym("@constant.html")({ fg = html_css_white }),
-		sym("@text.title.html")({ fg = html_css_white }),
-		sym("@keyword.html")({ fg = purple }),
-		sym("@text.uri.html")({ fg = html_css_green, gui = un }),
-
-		sym("@lsp.type.interface.typescript")({ fg = white }),
-		sym("@lsp.type.class.typescript")({ fg = white }),
-		sym("@lsp.typemod.class.declaration.typescript")({ fg = white }),
-		sym("@lsp.typemod.interface.declaration.typescript")({ fg = white }),
-		sym("@lsp.type.property.typescript")({ fg = purple }),
-		sym("@lsp.mod.declaration.typescript")({ fg = purple }),
-		sym("@lsp.typemod.class.defaultLibrary.typescript")({ fg = yellow }),
-		sym("@lsp.type.namespace.typescript")({ fg = white }),
-		sym("@lsp.typemod.member.declaration.typescript")({ fg = yellow }),
-		sym("@lsp.typemod.parameter.declaration.typescript")({ fg = white }),
-		sym("@lsp.typemod.variable.declaration.typescript")({ fg = white }),
-
-		sym("@label.json")({ fg = purple }),
-		sym("@label.jsonc")({ fg = purple }),
-		sym("@boolean.jsonc")({ fg = orange }),
-
-		sym("@punctuation.bracket.angular")({ fg = orange }),
-		sym("@tag.delimiter.angular")({ fg = yellow }),
-		sym("@tag.attribute.angular")({ fg = white }),
-		sym("@string.angular")({ fg = html_css_green }),
-		sym("@keyword.angular")({ fg = purple }),
-		sym("@keyword.event.angular")({ fg = purple }),
-
-		sym("@property.scss")({ fg = html_css_yellow }),
-		sym("@type.scss")({ fg = html_css_yellow }),
-		sym("@string.scss")({ fg = html_css_green }),
-
-		-- Other stuff
-		HelpHyperTextJump({ fg = yellow }),
-		markdownLinkText({ fg = fg }),
-
+		-- == Plugin Support == --
 		-- NvimTree
-		NvimTreeNormal({ bg = treebg, fg = fg }),
-		NvimTreeIndentMarker({ fg = hsl(204, 3, 32) }),
-		NvimTreeRootFolder({ fg = folder }),
-		NvimTreeFolderIcon({ fg = folder }),
+		NvimTreeNormal({ bg = p.bg, fg = p.fg }),
+		NvimTreeVertSplit({ fg = p.bg_gutter, bg = p.bg }),
+		NvimTreeEndOfBuffer({ fg = p.bg }),
+		NvimTreeFolderIcon({ fg = p.cyan }),
 
-		sassClass({ fg = html_css_yellow }),
-		cssBraces({ fg = html_css_white }),
-		cssMediaProp({ fg = html_css_white }),
-		cssPositioningProp({ fg = html_css_white }),
-		sassCssAttribute({ fg = html_css_green }),
-		sassAmpersand({ fg = html_css_yellow }),
-		cssTagName({ fg = html_css_yellow }),
-		cssColor({ fg = blue }),
-		cssBorderAttr({ fg = html_css_green }),
-		cssValueLength({ fg = blue }),
-		cssUnitDecorators({ fg = html_css_green }),
-		cssFlexibleBoxAttr({ fg = html_css_green }),
-		cssMultiColumnAttr({ fg = html_css_green }),
-		cssPositioningAttr({ fg = html_css_green }),
-		cssUIAttr({ fg = html_css_green }),
-		cssCommonAttr({ fg = html_css_green }),
-		sassDefinition({ fg = orange }),
+		-- Telescope
+		TelescopeNormal({ bg = p.bg_light }),
+		TelescopeBorder({ fg = p.bg_gutter, bg = p.bg_light }),
+		TelescopePromptBorder({ fg = p.bg_gutter, bg = p.bg_light }),
+		TelescopeResultsBorder({ fg = p.bg_gutter, bg = p.bg_light }),
+		TelescopePreviewBorder({ fg = p.bg_gutter, bg = p.bg_light }),
+		TelescopeSelection({ bg = p.bg_visual }),
+
+		-- GitSigns
+		GitSignsAdd({ fg = p.green }),
+		GitSignsChange({ fg = p.cyan }),
+		GitSignsDelete({ fg = p.error }),
+
+		-- Neogit
+		NeogitBranch({ fg = p.purple }),
+		NeogitRemote({ fg = p.cyan }),
 	}
 end)
