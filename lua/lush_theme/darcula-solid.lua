@@ -190,10 +190,30 @@ return lush(function()
 		
 		Special { fg = p.fg },
 		SpecialChar { fg = p.keyword },
-		Tag { fg = p.fg },
+		Tag { fg = p.function_call }, -- HTML tags in legacy syntax
 		Delimiter { fg = p.fg },
 		SpecialComment { fg = p.gray_light, gui = "italic" },
 		Debug { fg = p.pink },
+		
+		-- HTML Legacy Groups
+		htmlTag { fg = p.fg },
+		htmlEndTag { fg = p.fg },
+		htmlTagName { fg = p.function_call },
+		htmlArg { fg = p.member_variable, gui = "italic" },
+		htmlSpecialChar { fg = p.keyword },
+		htmlString { fg = p.string },
+		htmlComment { fg = p.fg_comment, gui = "italic" },
+		htmlCommentPart { fg = p.fg_comment, gui = "italic" },
+		htmlSpecialTagName { fg = p.function_call },
+		htmlLink { fg = p.string, gui = "underline" },
+		htmlBold { gui = "bold" },
+		htmlItalic { gui = "italic" },
+		htmlH1 { fg = p.function_call, gui = "bold" },
+		htmlH2 { fg = p.function_call, gui = "bold" },
+		htmlH3 { fg = p.function_call, gui = "bold" },
+		htmlH4 { fg = p.function_call, gui = "bold" },
+		htmlH5 { fg = p.function_call, gui = "bold" },
+		htmlH6 { fg = p.function_call, gui = "bold" },
 		
 		Todo { fg = p.annotation, bg = p.bg_darker, gui = "bold" },
 		Error { fg = p.error },
@@ -267,10 +287,33 @@ return lush(function()
 		["@punctuation.special"] = { fg = p.fg },
 		["@operator"] = { fg = p.fg },
 		
-		-- Tags (HTML/XML)
-		["@tag"] = { fg = p.fg },
+		-- Tags (HTML/XML/JSX/TSX)
+		["@tag"] = { fg = p.function_call }, -- Tag names should be yellow in Darcula
+		["@tag.builtin"] = { fg = p.function_call }, -- HTML5 tags
 		["@tag.attribute"] = { fg = p.member_variable, gui = "italic" },
 		["@tag.delimiter"] = { fg = p.fg },
+		
+		-- HTML specific
+		["@text.html"] = { fg = p.fg },
+		["@tag.html"] = { fg = p.function_call },
+		["@tag.attribute.html"] = { fg = p.member_variable, gui = "italic" },
+		["@tag.delimiter.html"] = { fg = p.fg },
+		["@constant.html"] = { fg = p.string }, -- attribute values
+		["@string.html"] = { fg = p.string },
+		
+		-- XML specific
+		["@tag.xml"] = { fg = p.function_call },
+		["@tag.attribute.xml"] = { fg = p.member_variable, gui = "italic" },
+		["@tag.delimiter.xml"] = { fg = p.fg },
+		["@string.xml"] = { fg = p.string },
+		
+		-- JSX/TSX specific
+		["@tag.tsx"] = { fg = p.function_call },
+		["@tag.jsx"] = { fg = p.function_call },
+		["@tag.attribute.tsx"] = { fg = p.member_variable, gui = "italic" },
+		["@tag.attribute.jsx"] = { fg = p.member_variable, gui = "italic" },
+		["@constructor.tsx"] = { fg = p.function_call }, -- Component names
+		["@constructor.jsx"] = { fg = p.function_call },
 		
 		-- Text/Markup (Markdown)
 		["@text"] = { fg = p.fg },
