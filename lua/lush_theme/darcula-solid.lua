@@ -45,6 +45,7 @@ local p = {
 	-- Diff Colors
 	diff_add = hsl("#4A8F4A"), -- Background color for added lines in a diff view.
 	diff_mod = hsl("#385570"), -- Background color for modified lines in a diff view.
+
 	diff_del = hsl("#632F34"), -- Background color for deleted lines in a diff view.
 	diff_text = hsl("#A9B7C6"), -- Text color for diffs, typically the default foreground.
 
@@ -369,10 +370,10 @@ return lush(function()
 		GitSignsChange({ fg = p.warning }),
 		GitSignsDelete({ fg = p.error }),
 		GitSignsCurrentLineBlame({ fg = p.comment }),
-		DiffAdd({ bg = hsl(p.diff_add):darken(25) }),
-		DiffChange({ bg = hsl(p.diff_mod):darken(25) }),
-		DiffDelete({ bg = hsl(p.diff_del):darken(25) }),
-		DiffText({ bg = hsl(p.diff_mod):darken(10) }),
+		DiffAdd({ bg = p.diff_add:darken(25) }),
+		DiffChange({ bg = p.diff_mod:darken(25) }),
+		DiffDelete({ bg = p.diff_del:darken(25) }),
+		DiffText({ bg = p.diff_mod:darken(10) }),
 
 		-- indent-blankline
 		IndentBlanklineChar({ fg = p.gutter_bg }),
