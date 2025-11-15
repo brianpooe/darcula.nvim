@@ -144,6 +144,16 @@ Following JetBrains conventions:
 - **Italic** documentation comments
 - **Strikethrough** for deprecated items
 
+## 🐛 Troubleshooting
+
+If certain elements aren't highlighting correctly (e.g., `this` keyword appears purple instead of orange, or Angular components appear white), see [DEBUGGING.md](DEBUGGING.md) for detailed troubleshooting steps.
+
+**Quick fixes:**
+1. Reload the theme: `:colorscheme darcula-solid`
+2. Check what highlight is applied: `:Inspect` (cursor on element)
+3. Ensure tree-sitter parsers are installed: `:TSInstall typescript javascript html`
+4. Restart LSP: `:LspRestart`
+
 ## 🙏 Credits
 - Original theme inspired by the official JetBrains Darcula theme
 - Thanks to [@rorystephenson](https://github.com/rorystephenson) for the customization idea
