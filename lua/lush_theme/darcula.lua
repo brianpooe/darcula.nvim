@@ -1,4 +1,4 @@
--- darcula-solid.nvim
+-- darcula.nvim
 -- A high-fidelity port of the JetBrains Darcula theme for Neovim
 -- Author: brianpooe
 -- License: MIT
@@ -440,7 +440,7 @@ return lush(function()
 		["@lsp.type.macro"] = { fg = p.annotation },
 		["@lsp.type.decorator"] = { fg = p.annotation },
 		-- 'this' keyword handling (multiple semantic token types)
-		-- NOTE: For changes to take effect, reload with :colorscheme darcula-solid
+		-- NOTE: For changes to take effect, reload with :colorscheme darcula
 		-- or restart Neovim and ensure LSP is reloaded
 		["@lsp.type.selfKeyword"] = { fg = p.keyword, gui = "italic" }, -- 'this' in TypeScript/JavaScript
 		["@lsp.type.selfParameter"] = { fg = p.keyword, gui = "italic" }, -- 'this' as parameter

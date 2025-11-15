@@ -1,5 +1,5 @@
-![Darcula-solid.nvim](https://raw.githubusercontent.com/briones-gabriel/darcula-solid.nvim/main/resources/darcula-solid-logo.png)
-# Darcula-solid.nvim
+![Darcula.nvim](https://raw.githubusercontent.com/briones-gabriel/darcula-solid.nvim/main/resources/darcula-solid-logo.png)
+# Darcula.nvim
 A high-fidelity Neovim color scheme that perfectly matches the official JetBrains Darcula theme. Built with [Lush](https://github.com/rktjmp/lush.nvim) for easy customization and comprehensive plugin support.
 
 ## ✨ Features
@@ -37,7 +37,7 @@ A high-fidelity Neovim color scheme that perfectly matches the official JetBrain
   dependencies = { "rktjmp/lush.nvim" },
   priority = 1000, -- Load before other plugins
   config = function()
-    vim.cmd("colorscheme darcula-solid")
+    vim.cmd("colorscheme darcula")
   end,
 }
 ```
@@ -62,14 +62,14 @@ Plug 'briones-gabriel/darcula-solid.nvim'
 ```lua
 -- init.lua
 vim.opt.termguicolors = true
-vim.cmd("colorscheme darcula-solid")
+vim.cmd("colorscheme darcula")
 ```
 
 Or in Vimscript:
 ```vim
 " init.vim
 set termguicolors
-colorscheme darcula-solid
+colorscheme darcula
 ```
 
 ### LSP Semantic Highlighting
@@ -99,23 +99,23 @@ The theme uses the official JetBrains Darcula colors:
 Because the theme is built with [Lush](https://github.com/rktjmp/lush.nvim), you can easily customize it to your preferences:
 
 1. Create a `colors` directory: `~/.config/nvim/colors`
-2. Create a custom theme file: `~/.config/nvim/colors/darcula-solid-custom.lua`
+2. Create a custom theme file: `~/.config/nvim/colors/darcula-custom.lua`
 3. Extend the base theme:
 
 ```lua
 vim.opt.background = 'dark'
-vim.g.colors_name = 'darcula-solid-custom'
+vim.g.colors_name = 'darcula-custom'
 
 local lush = require('lush')
-local darcula_solid = require('lush_theme.darcula-solid')
-local spec = lush.extends({darcula_solid}).with(function()
+local darcula = require('lush_theme.darcula')
+local spec = lush.extends({darcula}).with(function()
   -- Your modifications go here
   local yellow = lush.hsl(37, 100, 71)
 
   return {
     -- Override specific highlight groups
     Type { fg = yellow },
-    Function { fg = darcula_solid.Normal.fg },
+    Function { fg = darcula.Normal.fg },
     -- Add more customizations...
   }
 end)
@@ -125,7 +125,7 @@ lush(spec)
 
 4. Apply your custom theme:
 ```lua
-vim.cmd("colorscheme darcula-solid-custom")
+vim.cmd("colorscheme darcula-custom")
 ```
 
 ## 🌟 Highlights
@@ -149,7 +149,7 @@ Following JetBrains conventions:
 If certain elements aren't highlighting correctly (e.g., `this` keyword appears purple instead of orange, or Angular components appear white), see [DEBUGGING.md](DEBUGGING.md) for detailed troubleshooting steps.
 
 **Quick fixes:**
-1. Reload the theme: `:colorscheme darcula-solid`
+1. Reload the theme: `:colorscheme darcula`
 2. Check what highlight is applied: `:Inspect` (cursor on element)
 3. Ensure tree-sitter parsers are installed: `:TSInstall typescript javascript html`
 4. Restart LSP: `:LspRestart`

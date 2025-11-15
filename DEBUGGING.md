@@ -1,4 +1,4 @@
-# Debugging Darcula Solid Highlighting
+# Debugging Darcula Highlighting
 
 If certain elements aren't highlighting correctly, use these debugging techniques:
 
@@ -24,7 +24,7 @@ The `this` keyword should appear in **orange** (#CC7832), not purple like member
 - Theme not reloaded after updates
 
 **Solutions:**
-1. Reload the theme: `:colorscheme darcula-solid`
+1. Reload the theme: `:colorscheme darcula`
 2. Restart LSP: `:LspRestart` (if using nvim-lspconfig) or `:lua vim.lsp.stop_client(vim.lsp.get_clients())`
 3. Ensure tree-sitter parsers are installed: `:TSInstall typescript javascript tsx jsx`
 4. Check if LSP semantic tokens are enabled (most LSPs enable this by default)
@@ -40,7 +40,7 @@ Custom Angular components (like `<app-header>`, `<my-component>`) should appear 
 
 **Solutions:**
 1. Install HTML parser: `:TSInstall html`
-2. Reload theme: `:colorscheme darcula-solid`
+2. Reload theme: `:colorscheme darcula`
 3. Check file type: `:set filetype?` (should be `html` or `htmlangular`)
 4. If using Angular templates, ensure your LSP is configured for Angular
 
@@ -76,7 +76,7 @@ LSP semantic tokens provide rich semantic highlighting. To check if they're work
 ## 6. Force Reload Everything
 
 If nothing else works:
-1. Reload theme: `:colorscheme darcula-solid`
+1. Reload theme: `:colorscheme darcula`
 2. Reload tree-sitter: `:write | edit`
 3. Restart LSP: `:LspRestart`
 4. Or just restart Neovim
