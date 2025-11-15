@@ -473,20 +473,81 @@ return lush(function()
 		LspCodeLensSeparator({ fg = p.gray }),
 
 		-- == Plugin Support == --
-		-- NvimTree
+		-- NvimTree (Enhanced File Explorer)
 		NvimTreeNormal({ bg = p.bg, fg = p.fg }),
+		NvimTreeNormalNC({ bg = p.bg, fg = p.fg }),
 		NvimTreeVertSplit({ fg = p.border_dark, bg = p.bg }),
+		NvimTreeWinSeparator({ fg = p.border_dark, bg = p.bg }),
 		NvimTreeEndOfBuffer({ fg = p.bg }),
+		NvimTreeCursorLine({ bg = p.bg_current_line }),
+		NvimTreeCursorColumn({ bg = p.bg_current_line }),
+		NvimTreeStatusLine({ bg = p.bg_light, fg = p.fg }),
+		NvimTreeStatusLineNC({ bg = p.bg_light, fg = p.fg_dark }),
+
+		-- Folders
 		NvimTreeFolderIcon({ fg = p.number }),
 		NvimTreeFolderName({ fg = p.fg }),
 		NvimTreeOpenedFolderName({ fg = p.number, gui = "bold" }),
 		NvimTreeEmptyFolderName({ fg = p.fg_dark }),
+		NvimTreeSymlinkFolderName({ fg = p.blue, gui = "italic" }),
+
+		-- Files
 		NvimTreeRootFolder({ fg = p.keyword, gui = "bold" }),
+		NvimTreeExecFile({ fg = p.hint, gui = "bold" }),
 		NvimTreeSpecialFile({ fg = p.function_call, gui = "underline" }),
+		NvimTreeImageFile({ fg = p.constant }),
+		NvimTreeSymlink({ fg = p.blue, gui = "italic" }),
+		NvimTreeModifiedFile({ fg = p.warning }),
+		NvimTreeOpenedFile({ fg = p.number, gui = "bold" }),
+		NvimTreeHiddenFile({ fg = p.fg_dark }),
+
+		-- Git Status
 		NvimTreeGitDirty({ fg = p.warning }),
 		NvimTreeGitStaged({ fg = p.hint }),
 		NvimTreeGitNew({ fg = p.hint }),
+		NvimTreeGitRenamed({ fg = p.number }),
 		NvimTreeGitDeleted({ fg = p.error }),
+		NvimTreeGitMerge({ fg = p.constant }),
+		NvimTreeGitIgnored({ fg = p.fg_dark }),
+
+		-- File Highlights (decorations)
+		NvimTreeFileDirty({ fg = p.warning }),
+		NvimTreeFileStaged({ fg = p.hint }),
+		NvimTreeFileNew({ fg = p.hint }),
+		NvimTreeFileRenamed({ fg = p.number }),
+		NvimTreeFileDeleted({ fg = p.error }),
+		NvimTreeFileMerge({ fg = p.constant }),
+		NvimTreeFileIgnored({ fg = p.fg_dark }),
+
+		-- Folder Highlights (decorations)
+		NvimTreeFolderDirty({ fg = p.warning }),
+		NvimTreeFolderStaged({ fg = p.hint }),
+		NvimTreeFolderNew({ fg = p.hint }),
+		NvimTreeFolderRenamed({ fg = p.number }),
+		NvimTreeFolderDeleted({ fg = p.error }),
+		NvimTreeFolderMerge({ fg = p.constant }),
+		NvimTreeFolderIgnored({ fg = p.fg_dark }),
+
+		-- Clipboard
+		NvimTreeCutHL({ fg = p.error, gui = "bold" }),
+		NvimTreeCopiedHL({ fg = p.hint, gui = "bold" }),
+
+		-- Bookmarks
+		NvimTreeBookmarkHL({ fg = p.constant, gui = "bold" }),
+
+		-- Diagnostics
+		NvimTreeLspDiagnosticsError({ fg = p.error }),
+		NvimTreeLspDiagnosticsWarning({ fg = p.warning }),
+		NvimTreeLspDiagnosticsInformation({ fg = p.info }),
+		NvimTreeLspDiagnosticsHint({ fg = p.hint }),
+
+		-- Window Picker
+		NvimTreeWindowPicker({ bg = p.bg_visual, fg = p.function_call, gui = "bold" }),
+
+		-- Indent Markers
+		NvimTreeIndentMarker({ fg = p.bg_darker }),
+		NvimTreeLiveFilterPrefix({ fg = p.keyword, gui = "bold" }),
+		NvimTreeLiveFilterValue({ fg = p.function_call, gui = "bold" }),
 
 		-- Telescope
 		TelescopeNormal({ bg = p.bg_light, fg = p.fg }),
