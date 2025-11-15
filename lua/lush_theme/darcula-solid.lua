@@ -310,6 +310,9 @@ return lush(function()
 		["@variable.parameter.builtin"] = { fg = p.constant, gui = "italic" },
 		["@variable.member"] = { fg = p.member_variable, gui = "italic" },
 
+		-- Special handling for 'this' keyword (should be distinct from member variables)
+		["@variable.builtin.this"] = { fg = p.keyword, gui = "italic" },
+
 		-- Constants
 		["@constant"] = { fg = p.constant },
 		["@constant.builtin"] = { fg = p.constant },
@@ -348,6 +351,10 @@ return lush(function()
 		["@tag.attribute.jsx"] = { fg = p.member_variable, gui = "italic" },
 		["@constructor.tsx"] = { fg = p.function_call }, -- Component names
 		["@constructor.jsx"] = { fg = p.function_call },
+
+		-- Angular specific (custom components in templates)
+		["@constructor.html"] = { fg = p.function_call }, -- Angular components in HTML
+		["@type.html"] = { fg = p.function_call }, -- Angular components that appear as types
 
 		-- Markup (Markdown, reStructuredText, etc.) - New standard
 		["@markup.strong"] = { gui = "bold" },
@@ -425,6 +432,8 @@ return lush(function()
 		["@lsp.type.method"] = { fg = p.function_call },
 		["@lsp.type.macro"] = { fg = p.annotation },
 		["@lsp.type.decorator"] = { fg = p.annotation },
+		["@lsp.type.selfKeyword"] = { fg = p.keyword, gui = "italic" }, -- 'this' keyword in TypeScript/JavaScript
+		["@lsp.type.component"] = { fg = p.function_call }, -- Angular/React components
 
 		["@lsp.mod.deprecated"] = { gui = "strikethrough" },
 		["@lsp.mod.readonly"] = { gui = "italic" },
