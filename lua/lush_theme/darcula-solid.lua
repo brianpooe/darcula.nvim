@@ -38,6 +38,9 @@ local p = {
 	function_call = hsl("#FFC66D"), -- Function and method invocations
 	annotation = hsl("#BBB529"), -- Annotations, decorators, attributes
 
+	-- Type Colors
+	type_name = hsl("#769AA5"), -- Classes, interfaces, types (teal-blue)
+
 	-- Variable/Constant Colors
 	constant = hsl("#9876AA"), -- Named constants, enum members
 	member_variable = hsl("#9876AA"), -- Instance/class variables (often italicized)
@@ -175,7 +178,7 @@ return lush(function()
 		Identifier({ fg = p.fg }),
 		Function({ fg = p.function_call }),
 
-		Type({ fg = p.fg }),
+		Type({ fg = p.type_name }),
 		StorageClass({ fg = p.keyword }),
 		Structure({ fg = p.keyword }),
 		Typedef({ fg = p.keyword }),
@@ -261,10 +264,10 @@ return lush(function()
 		["@constructor"] = { fg = p.function_call },
 
 		-- Types
-		["@type"] = { fg = p.fg }, -- Darcula uses default foreground for types
+		["@type"] = { fg = p.type_name }, -- Darcula uses teal-blue for types
 		["@type.builtin"] = { fg = p.keyword }, -- Built-in types styled as keywords
 		["@type.qualifier"] = { fg = p.keyword },
-		["@type.definition"] = { fg = p.fg },
+		["@type.definition"] = { fg = p.type_name },
 		["@storageclass"] = { fg = p.keyword },
 		["@attribute"] = { fg = p.annotation },
 		["@field"] = { fg = p.member_variable },
@@ -327,21 +330,21 @@ return lush(function()
 		["@text.reference"] = { fg = p.number },
 
 		-- Namespaces and Modules
-		["@namespace"] = { fg = p.fg },
-		["@module"] = { fg = p.fg },
+		["@namespace"] = { fg = p.type_name },
+		["@module"] = { fg = p.type_name },
 		["@symbol"] = { fg = p.constant },
 
 		-- Labels
 		["@label"] = { fg = p.keyword },
 
 		-- == LSP Semantic Token Support == --
-		["@lsp.type.class"] = { fg = p.fg },
-		["@lsp.type.struct"] = { fg = p.fg },
-		["@lsp.type.enum"] = { fg = p.fg },
+		["@lsp.type.class"] = { fg = p.type_name },
+		["@lsp.type.struct"] = { fg = p.type_name },
+		["@lsp.type.enum"] = { fg = p.type_name },
 		["@lsp.type.enumMember"] = { fg = p.constant },
-		["@lsp.type.interface"] = { fg = p.fg },
-		["@lsp.type.typeParameter"] = { fg = p.fg },
-		["@lsp.type.namespace"] = { fg = p.fg },
+		["@lsp.type.interface"] = { fg = p.type_name },
+		["@lsp.type.typeParameter"] = { fg = p.type_name },
+		["@lsp.type.namespace"] = { fg = p.type_name },
 		["@lsp.type.parameter"] = { fg = p.fg },
 		["@lsp.type.variable"] = { fg = p.fg },
 		["@lsp.type.property"] = { fg = p.member_variable },
