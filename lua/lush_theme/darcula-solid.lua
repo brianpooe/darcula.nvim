@@ -225,9 +225,22 @@ return lush(function()
 		-- == Tree-sitter Highlight Groups == --
 		-- Keywords and Control Flow
 		["@keyword"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.coroutine"] = { fg = p.keyword, gui = "bold" },
 		["@keyword.function"] = { fg = p.keyword, gui = "bold" },
 		["@keyword.operator"] = { fg = p.keyword, gui = "bold" },
 		["@keyword.return"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.import"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.type"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.modifier"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.repeat"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.debug"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.exception"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.conditional"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.conditional.ternary"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.directive"] = { fg = p.keyword, gui = "bold" },
+		["@keyword.directive.define"] = { fg = p.keyword, gui = "bold" },
+
+		-- Legacy aliases (for backward compatibility)
 		["@conditional"] = { fg = p.keyword, gui = "bold" },
 		["@repeat"] = { fg = p.keyword, gui = "bold" },
 		["@exception"] = { fg = p.keyword, gui = "bold" },
@@ -236,47 +249,65 @@ return lush(function()
 		-- Comments
 		["@comment"] = { fg = p.fg_comment, gui = "italic" },
 		["@comment.documentation"] = { fg = p.fg_comment, gui = "italic" },
-		["@comment.todo"] = { fg = p.annotation, bg = p.bg_darker, gui = "bold" },
-		["@comment.warning"] = { fg = p.warning, gui = "bold" },
 		["@comment.error"] = { fg = p.error, gui = "bold" },
+		["@comment.warning"] = { fg = p.warning, gui = "bold" },
+		["@comment.todo"] = { fg = p.annotation, bg = p.bg_darker, gui = "bold" },
+		["@comment.note"] = { fg = p.hint, gui = "bold" },
 
 		-- Strings
 		["@string"] = { fg = p.string },
 		["@string.documentation"] = { fg = p.string, gui = "italic" },
-		["@string.regex"] = { fg = p.string },
+		["@string.regexp"] = { fg = p.string },
 		["@string.escape"] = { fg = p.keyword }, -- Escape sequences use keyword color
 		["@string.special"] = { fg = p.keyword },
+		["@string.special.symbol"] = { fg = p.constant }, -- Symbols in Ruby, Lisp, etc.
+		["@string.special.url"] = { fg = p.blue, gui = "underline" },
+		["@string.special.path"] = { fg = p.string },
 		["@character"] = { fg = p.string },
 		["@character.special"] = { fg = p.keyword },
 
+		-- Legacy alias (for backward compatibility)
+		["@string.regex"] = { fg = p.string },
+
 		-- Numbers and Booleans
 		["@number"] = { fg = p.number },
-		["@float"] = { fg = p.number },
+		["@number.float"] = { fg = p.number },
 		["@boolean"] = { fg = p.keyword, gui = "italic" },
+
+		-- Legacy alias (for backward compatibility)
+		["@float"] = { fg = p.number },
 
 		-- Functions and Methods
 		["@function"] = { fg = p.function_call },
 		["@function.call"] = { fg = p.function_call },
 		["@function.builtin"] = { fg = p.function_call },
 		["@function.macro"] = { fg = p.function_call },
+		["@function.method"] = { fg = p.function_call },
+		["@function.method.call"] = { fg = p.function_call },
+		["@constructor"] = { fg = p.function_call },
+
+		-- Legacy aliases (for backward compatibility)
 		["@method"] = { fg = p.function_call },
 		["@method.call"] = { fg = p.function_call },
-		["@constructor"] = { fg = p.function_call },
 
 		-- Types
 		["@type"] = { fg = p.type_name }, -- Darcula uses teal-blue for types
 		["@type.builtin"] = { fg = p.keyword }, -- Built-in types styled as keywords
 		["@type.qualifier"] = { fg = p.keyword },
 		["@type.definition"] = { fg = p.type_name },
-		["@storageclass"] = { fg = p.keyword },
 		["@attribute"] = { fg = p.annotation },
-		["@field"] = { fg = p.member_variable },
+		["@attribute.builtin"] = { fg = p.annotation },
 		["@property"] = { fg = p.member_variable },
+
+		-- Legacy aliases (for backward compatibility)
+		["@storageclass"] = { fg = p.keyword },
+		["@field"] = { fg = p.member_variable },
 
 		-- Variables and Parameters
 		["@variable"] = { fg = p.fg },
 		["@variable.builtin"] = { fg = p.constant, gui = "italic" },
 		["@variable.parameter"] = { fg = p.fg },
+		["@variable.parameter.builtin"] = { fg = p.constant, gui = "italic" },
 		["@variable.member"] = { fg = p.member_variable, gui = "italic" },
 
 		-- Constants
@@ -287,7 +318,7 @@ return lush(function()
 		-- Punctuation and Operators
 		["@punctuation.delimiter"] = { fg = p.fg },
 		["@punctuation.bracket"] = { fg = p.fg },
-		["@punctuation.special"] = { fg = p.fg },
+		["@punctuation.special"] = { fg = p.keyword }, -- String interpolation, special symbols
 		["@operator"] = { fg = p.fg },
 
 		-- Tags (HTML/XML/JSX/TSX)
@@ -318,7 +349,35 @@ return lush(function()
 		["@constructor.tsx"] = { fg = p.function_call }, -- Component names
 		["@constructor.jsx"] = { fg = p.function_call },
 
-		-- Text/Markup (Markdown)
+		-- Markup (Markdown, reStructuredText, etc.) - New standard
+		["@markup.strong"] = { gui = "bold" },
+		["@markup.italic"] = { gui = "italic" },
+		["@markup.strikethrough"] = { gui = "strikethrough" },
+		["@markup.underline"] = { gui = "underline" },
+
+		["@markup.heading"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.1"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.2"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.3"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.4"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.5"] = { fg = p.function_call, gui = "bold" },
+		["@markup.heading.6"] = { fg = p.function_call, gui = "bold" },
+
+		["@markup.quote"] = { fg = p.fg_comment, gui = "italic" },
+		["@markup.math"] = { fg = p.number },
+
+		["@markup.link"] = { fg = p.blue, gui = "underline" },
+		["@markup.link.label"] = { fg = p.number },
+		["@markup.link.url"] = { fg = p.string, gui = "underline" },
+
+		["@markup.raw"] = { fg = p.string },
+		["@markup.raw.block"] = { fg = p.string },
+
+		["@markup.list"] = { fg = p.keyword },
+		["@markup.list.checked"] = { fg = p.hint },
+		["@markup.list.unchecked"] = { fg = p.fg_dark },
+
+		-- Legacy @text.* groups (for backward compatibility)
 		["@text"] = { fg = p.fg },
 		["@text.strong"] = { gui = "bold" },
 		["@text.emphasis"] = { gui = "italic" },
@@ -330,12 +389,26 @@ return lush(function()
 		["@text.reference"] = { fg = p.number },
 
 		-- Namespaces and Modules
-		["@namespace"] = { fg = p.type_name },
 		["@module"] = { fg = p.type_name },
+		["@module.builtin"] = { fg = p.type_name },
+
+		-- Legacy aliases (for backward compatibility)
+		["@namespace"] = { fg = p.type_name },
 		["@symbol"] = { fg = p.constant },
 
 		-- Labels
 		["@label"] = { fg = p.keyword },
+
+		-- Diff (Version Control)
+		["@diff.plus"] = { fg = p.hint, bg = p.diff_add },
+		["@diff.minus"] = { fg = p.error, bg = p.diff_delete },
+		["@diff.delta"] = { fg = p.warning, bg = p.diff_modified },
+
+		-- Special Captures
+		["@none"] = { fg = "NONE", bg = "NONE" }, -- Disable highlighting
+		["@conceal"] = { fg = p.fg_dark }, -- Concealed text
+		["@spell"] = {}, -- Enable spell checking
+		["@nospell"] = {}, -- Disable spell checking
 
 		-- == LSP Semantic Token Support == --
 		["@lsp.type.class"] = { fg = p.type_name },
