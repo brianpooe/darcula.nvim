@@ -311,7 +311,11 @@ return lush(function()
 		["@variable.member"] = { fg = p.member_variable, gui = "italic" },
 
 		-- Special handling for 'this' keyword (should be distinct from member variables)
+		-- Multiple approaches to catch 'this' keyword in different contexts
 		["@variable.builtin.this"] = { fg = p.keyword, gui = "italic" },
+		["@keyword.this"] = { fg = p.keyword, gui = "italic" },
+		["@variable.language"] = { fg = p.keyword, gui = "italic" }, -- Used by some parsers for 'this'
+		["@variable.language.this"] = { fg = p.keyword, gui = "italic" },
 
 		-- Constants
 		["@constant"] = { fg = p.constant },
@@ -353,8 +357,11 @@ return lush(function()
 		["@constructor.jsx"] = { fg = p.function_call },
 
 		-- Angular specific (custom components in templates)
+		-- Angular components can be captured in multiple ways depending on parser
 		["@constructor.html"] = { fg = p.function_call }, -- Angular components in HTML
 		["@type.html"] = { fg = p.function_call }, -- Angular components that appear as types
+		["@tag.component"] = { fg = p.function_call }, -- Web components / custom elements
+		["@tag.custom"] = { fg = p.function_call }, -- Custom tags
 
 		-- Markup (Markdown, reStructuredText, etc.) - New standard
 		["@markup.strong"] = { gui = "bold" },
@@ -432,8 +439,15 @@ return lush(function()
 		["@lsp.type.method"] = { fg = p.function_call },
 		["@lsp.type.macro"] = { fg = p.annotation },
 		["@lsp.type.decorator"] = { fg = p.annotation },
-		["@lsp.type.selfKeyword"] = { fg = p.keyword, gui = "italic" }, -- 'this' keyword in TypeScript/JavaScript
+		-- 'this' keyword handling (multiple semantic token types)
+		-- NOTE: For changes to take effect, reload with :colorscheme darcula-solid
+		-- or restart Neovim and ensure LSP is reloaded
+		["@lsp.type.selfKeyword"] = { fg = p.keyword, gui = "italic" }, -- 'this' in TypeScript/JavaScript
+		["@lsp.type.selfParameter"] = { fg = p.keyword, gui = "italic" }, -- 'this' as parameter
+
+		-- Angular/React component handling
 		["@lsp.type.component"] = { fg = p.function_call }, -- Angular/React components
+		["@lsp.type.customElement"] = { fg = p.function_call }, -- Web components
 
 		["@lsp.mod.deprecated"] = { gui = "strikethrough" },
 		["@lsp.mod.readonly"] = { gui = "italic" },
